@@ -163,7 +163,10 @@ p {
     border: 2px solid var(--accent-color);
     padding: 1rem 3rem;
     color: var(--accent-color);
-    font-family: var(--font-heading);
+    color: var(--accent-color);
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 1.1rem;
@@ -321,6 +324,34 @@ p {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Mobile Adjustments for Cards */
+@media (max-width: 768px) {
+    .card-fan {
+        height: auto;
+        min-height: 200px;
+        perspective: none;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 1rem;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .card {
+        flex: 0 0 auto;
+        margin: 0 !important;
+        transform: none !important;
+        /* Reset all transforms */
+    }
+
+    /* Disable hover effects that move cards on touch */
+    .card:hover {
+        transform: none !important;
+        margin: 0 !important;
+        box-shadow: 0 0 15px var(--accent-color);
     }
 }
 
