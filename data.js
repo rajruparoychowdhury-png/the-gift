@@ -91,7 +91,7 @@ const GIFT_DATA = {
         "A dedicated donation to a cause",
         "A time capsule to open later",
         "A personalized keychain or wallet",
-        "A coordinates bracelet",
+        "Coordinated bracelets",
         "A custom neon sign",
         "A memory jar",
         "A vintage map of a favorite travel spot",
