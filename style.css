@@ -1,0 +1,381 @@
+:root {
+    /* Fairy Tale Palette */
+    --bg-color: #1a0b2e;
+    /* Deep purple */
+    --text-color: #f3e6ff;
+    /* Soft lavender white */
+    --accent-color: #ffd700;
+    /* Gold */
+    --secondary-accent: #ff69b4;
+    /* Pink for romance */
+    --glass-bg: rgba(20, 10, 40, 0.7);
+    --choice-bg: rgba(255, 215, 0, 0.1);
+    --choice-hover: rgba(255, 215, 0, 0.25);
+    --glow-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    --text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+
+    /* Typography */
+    --font-heading: 'Cinzel Decorative', cursive;
+    /* Need to import this */
+    --font-body: 'Playfair Display', serif;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Magical Overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(10, 5, 20, 0.8) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Fireflies/Particles Container */
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#app {
+    width: 100%;
+    max-width: 700px;
+    padding: 3rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: relative;
+    z-index: 2;
+    background: var(--glass-bg);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 215, 0, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+#app.visible {
+    opacity: 1;
+}
+
+/* Typography */
+h1,
+h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    text-shadow: var(--text-shadow);
+    letter-spacing: 0.05em;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Choices */
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.choice-btn {
+    background: var(--choice-bg);
+    border: 1px solid var(--accent-color);
+    padding: 1.2rem 2rem;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.choice-btn:hover::before {
+    left: 100%;
+}
+
+.choice-btn:hover {
+    background: var(--choice-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--glow-shadow);
+}
+
+.cta-btn {
+    background: linear-gradient(45deg, var(--bg-color), #2a1b3e);
+    border: 2px solid var(--accent-color);
+    padding: 1rem 3rem;
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin-top: 2rem;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.cta-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 30px var(--accent-color);
+}
+
+/* --- New Interactions --- */
+
+/* 1. Mystery Boxes */
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.mystery-box {
+    width: 120px;
+    height: 120px;
+    background-image: url('box.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.mystery-box:hover {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+/* 2. Spin Wheel */
+.wheel-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+    background: conic-gradient(#2a1b3e 0% 25%,
+            #4a2b6e 25% 50%,
+            #2a1b3e 50% 75%,
+            #4a2b6e 75% 100%);
+    position: relative;
+    transition: transform 4s cubic-bezier(0.1, 0.7, 0.1, 1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.wheel-arrow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid var(--accent-color);
+    z-index: 10;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.spin-btn {
+    margin-top: 2rem;
+}
+
+/* 3. Card Fan */
+.card-fan {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    align-items: flex-end;
+    margin-top: 1rem;
+    perspective: 1000px;
+}
+
+.card {
+    width: 100px;
+    height: 160px;
+    background-image: url('card.png');
+    background-size: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
+    margin: 0 -30px;
+    /* Overlap */
+    border: 1px solid var(--accent-color);
+    transform-origin: bottom center;
+}
+
+.card:nth-child(1) {
+    transform: rotate(-20deg) translateY(20px);
+}
+
+.card:nth-child(2) {
+    transform: rotate(-10deg) translateY(5px);
+}
+
+.card:nth-child(3) {
+    transform: rotate(0deg) translateY(0px);
+    z-index: 5;
+}
+
+.card:nth-child(4) {
+    transform: rotate(10deg) translateY(5px);
+}
+
+.card:nth-child(5) {
+    transform: rotate(20deg) translateY(20px);
+}
+
+.card:hover {
+    transform: translateY(-30px) scale(1.1) rotate(0deg) !important;
+    z-index: 10;
+    box-shadow: 0 0 20px var(--accent-color);
+    margin: 0 10px;
+}
+
+/* Animation Utilities */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.particle {
+    position: absolute;
+    background: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* Reveal Popup */
+.reveal-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 5, 20, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.popup-content {
+    background: var(--glass-bg);
+    border: 1px solid var(--accent-color);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
