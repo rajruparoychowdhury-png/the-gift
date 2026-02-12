@@ -1,6 +1,6 @@
 const GIFT_DATA = {
     chill: [
-        "A weighted blanket",
+        "A soft, weighted blanket",
         "A complete Harry Potter movie marathon",
         "A tea/coffee tasting set",
         "A cozy Hogwarts-themed hoodie",
@@ -10,7 +10,7 @@ const GIFT_DATA = {
         "A set of bath bombs and salts",
         "A cozy plushie or rug",
         "Noise-canceling headphones",
-        "A pair of high-end slippers",
+        "A pair of high-end sneakers / slippers",
         "A 1000-piece puzzle",
         "A gardening starter kit",
         "A chocolate tasting box",
@@ -94,14 +94,13 @@ const GIFT_DATA = {
         "Coordinated bracelets",
         "A custom neon sign",
         "A memory jar",
-        "A vintage map of a favorite travel spot",
         "Harry Potter memorabilia",
         "A 'Coupon Book' for chores and favors"
     ],
     knowledge: [
         "A MasterClass subscription (Cooking/Writing/etc.)",
         "A beautiful hardcover history book",
-        "A trivia board game (Harry Potter edition)",
+        "A trivia game (Harry Potter edition)",
         "A guided museum tour with an expert",
         "A workshop on a new skill",
         "A subscription to a literary magazine",
