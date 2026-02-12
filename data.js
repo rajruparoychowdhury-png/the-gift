@@ -6,7 +6,7 @@ const GIFT_DATA = {
         "A cozy Hogwarts-themed hoodie",
         "A reading day together",
         "A warm, ambient table lamp",
-        "A subscription to a wellness app",
+        "A subscription to a music / streaming app",
         "A set of bath bombs and salts",
         "A cozy plushie or rug",
         "Noise-canceling headphones",
@@ -19,7 +19,8 @@ const GIFT_DATA = {
         "A movie bucket list poster",
         "A sunrise alarm clock",
         "An essential oil diffuser",
-        "A comfortable reading chair cushion"
+        "A comfortable reading chair cushion",
+        "A game night"
     ],
     creative: [
         "A Paint-by-Numbers kit",
@@ -123,7 +124,7 @@ const STORY = [
         id: "intro",
         type: "intro",
         text: "Hello Sayan, path has opened before you.<br>It is a story that hasn't been written yet.<br>Every choice you make weaves a new thread.<br>Some strands are woven by your hand.<br>Others by fate.<br>At the end, a gift awaits.",
-        cta: "Open the Book"
+        cta: "Begin Adventure"
     },
     {
         id: "ch1",
@@ -149,7 +150,7 @@ const STORY = [
             { text: "The path of blooming wildflowers.", score: { creative: 2 } },
             { text: "The path leading to the village.", score: { outing: 2 } },
             { text: "The steep climb to the peaks.", score: { trip: 2 } },
-            { text: "The path lined with ancient stones.", score: { symbolic: 2 } },
+            { text: "The path lined with magical stones.", score: { symbolic: 2 } },
             { text: "The path toward the hidden ruins.", score: { knowledge: 2 } }
         ]
     },
@@ -204,9 +205,9 @@ const STORY = [
         type: "choice",
         text: "The magic here is unpredictable. How much do you trust the chaos?",
         choices: [
-            { text: "I trust the map I know.", randomness: 0.1, score: { knowledge: 1 } },
-            { text: "I'll take the scenic detour.", randomness: 0.4, score: { outing: 1 } },
-            { text: "I surrender to the wild unknown.", randomness: 0.9, score: { trip: 1 } }
+            { text: "I trust the map I know.", randomness: 0.1, score: { knowledge: 1, symbolic: 1 } },
+            { text: "I'll take the scenic detour.", randomness: 0.4, score: { outing: 1, chill: 1 } },
+            { text: "I surrender to the wild unknown.", randomness: 0.9, score: { trip: 1, creative: 1 } }
         ]
     },
     {
@@ -230,9 +231,9 @@ const STORY = [
         type: "choice",
         text: "A door of woven vines stands before you. Use your intent to open it.",
         choices: [
-            { text: "With gentle Force.", vibe: "power", score: { trip: 1 } },
+            { text: "With gentle Force.", vibe: "power", score: { trip: 1 , outing: 1} },
             { text: "With a hidden Key.", vibe: "mystery", score: { knowledge: 1 } },
-            { text: "With a soft Whisper.", vibe: "intimacy", score: { symbolic: 1 } },
+            { text: "With a soft Whisper.", vibe: "intimacy", score: { symbolic: 1 , chill: 1} },
             { text: "By channeling pure Energy.", vibe: "magic", score: { creative: 1 } }
         ]
     }
