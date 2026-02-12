@@ -1,7 +1,7 @@
 const GIFT_DATA = {
     chill: [
         "A weighted blanket",
-        "A complete Harry Potter movie marathon kit",
+        "A complete Harry Potter movie marathon",
         "A tea/coffee tasting set",
         "A cozy Hogwarts-themed hoodie",
         "A reading day together",
