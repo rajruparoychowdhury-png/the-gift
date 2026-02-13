@@ -123,7 +123,7 @@ const STORY = [
     {
         id: "intro",
         type: "intro",
-        text: "Hello Sayan, path has opened before you.<br>It is a story that hasn't been written yet.<br>Every choice you make weaves a new thread.<br>Some strands are woven by your hand.<br>Others by fate.<br>At the end, a gift awaits.",
+        text: "Hello Sayan, a path has opened before you.<br>It is a story that hasn't been written yet.<br>Every choice you make weaves a new thread.<br>Some strands are woven by your hand.<br>Others by fate.<br>At the end, a gift awaits.",
         cta: "Begin Adventure"
     },
     {
